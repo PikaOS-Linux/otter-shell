@@ -73,7 +73,7 @@
 [submodule "otter-first-setup"]
 	path = otter-first-setup
 	url = git@ssh.pika-os.com:otter-shell/otter-first-setup.git
-	branch = fer/program-release-20260905
+	branch = main
 [submodule "otter-gaming-utils"]
 	path = otter-gaming-utils
 	url = git@ssh.pika-os.com:otter-shell/otter-gaming-utils.git
@@ -85,7 +85,7 @@
 [submodule "otter-greeter"]
 	path = otter-greeter
 	url = git@ssh.pika-os.com:otter-shell/otter-greeter.git
-	branch = fix/greeter-home-ownership
+	branch = main
 [submodule "otter-hypr"]
 	path = otter-hypr
 	url = git@ssh.pika-os.com:otter-shell/otter-hypr.git
@@ -97,7 +97,7 @@
 [submodule "otter-installer"]
 	path = otter-installer
 	url = git@ssh.pika-os.com:otter-shell/otter-installer.git
-	branch = fer/program-release-20260905
+	branch = main
 [submodule "otter-jade"]
 	path = otter-jade
 	url = git@ssh.pika-os.com:otter-shell/otter-jade.git
@@ -249,7 +249,7 @@
 [submodule "otter-welcome"]
 	path = otter-welcome
 	url = git@ssh.pika-os.com:otter-shell/otter-welcome.git
-	branch = fer/program-release-20260905
+	branch = main
 [submodule "otter-zenith"]
 	path = otter-zenith
 	url = git@ssh.pika-os.com:otter-shell/otter-zenith.git
