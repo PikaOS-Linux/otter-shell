@@ -258,11 +258,3 @@
 	path = xdg-desktop-portal-otter
 	url = git@ssh.pika-os.com:otter-shell/xdg-desktop-portal-otter.git
 	branch = main
-[submodule "zango"]
-	path = zango
-	url = git@github.com:ferrreo/zango.git
-	branch = main
-[submodule "zig-regex"]
-	path = zig-regex
-	url = https://github.com/zig-utils/zig-regex.git
-	branch = main
