@@ -1,0 +1,268 @@
+[submodule "bluetooth-applet-plugin"]
+	path = bluetooth-applet-plugin
+	url = git@ssh.pika-os.com:otter-shell/bluetooth-applet-plugin.git
+	branch = main
+[submodule "otter-assist"]
+	path = otter-assist
+	url = git@ssh.pika-os.com:otter-shell/otter-assist.git
+	branch = main
+[submodule "otter-assistant"]
+	path = otter-assistant
+	url = git@ssh.pika-os.com:otter-shell/otter-assistant.git
+	branch = main
+[submodule "otter-bar"]
+	path = otter-bar
+	url = git@ssh.pika-os.com:otter-shell/otter-bar.git
+	branch = master
+[submodule "otter-bench"]
+	path = otter-bench
+	url = git@ssh.pika-os.com:otter-shell/otter-bench.git
+	branch = main
+[submodule "otter-browser"]
+	path = otter-browser
+	url = git@ssh.pika-os.com:otter-shell/otter-browser.git
+	branch = main
+[submodule "otter-cal"]
+	path = otter-cal
+	url = git@ssh.pika-os.com:otter-shell/otter-cal.git
+	branch = main
+[submodule "otter-calc"]
+	path = otter-calc
+	url = git@ssh.pika-os.com:otter-shell/otter-calc.git
+	branch = main
+[submodule "otter-clicker"]
+	path = otter-clicker
+	url = git@ssh.pika-os.com:otter-shell/otter-clicker.git
+	branch = main
+[submodule "otter-clip"]
+	path = otter-clip
+	url = git@ssh.pika-os.com:otter-shell/otter-clip.git
+	branch = main
+[submodule "otter-conf"]
+	path = otter-conf
+	url = git@ssh.pika-os.com:otter-shell/otter-conf.git
+	branch = main
+[submodule "otter-config-types"]
+	path = otter-config-types
+	url = git@ssh.pika-os.com:otter-shell/otter-config-types.git
+	branch = main
+[submodule "otter-cue"]
+	path = otter-cue
+	url = git@ssh.pika-os.com:otter-shell/otter-cue.git
+	branch = main
+[submodule "otter-desktop"]
+	path = otter-desktop
+	url = git@ssh.pika-os.com:otter-shell/otter-desktop.git
+	branch = master
+[submodule "otter-dock"]
+	path = otter-dock
+	url = git@ssh.pika-os.com:otter-shell/otter-dock.git
+	branch = main
+[submodule "otter-emoji"]
+	path = otter-emoji
+	url = git@ssh.pika-os.com:otter-shell/otter-emoji.git
+	branch = main
+[submodule "otter-examples"]
+	path = otter-examples
+	url = git@ssh.pika-os.com:otter-shell/otter-examples.git
+	branch = main
+[submodule "otter-files"]
+	path = otter-files
+	url = git@ssh.pika-os.com:otter-shell/otter-files.git
+	branch = main
+[submodule "otter-first-setup"]
+	path = otter-first-setup
+	url = git@ssh.pika-os.com:otter-shell/otter-first-setup.git
+	branch = fer/program-release-20260905
+[submodule "otter-gaming-utils"]
+	path = otter-gaming-utils
+	url = git@ssh.pika-os.com:otter-shell/otter-gaming-utils.git
+	branch = main
+[submodule "otter-geo"]
+	path = otter-geo
+	url = git@ssh.pika-os.com:otter-shell/otter-geo.git
+	branch = master
+[submodule "otter-greeter"]
+	path = otter-greeter
+	url = git@ssh.pika-os.com:otter-shell/otter-greeter.git
+	branch = fix/greeter-home-ownership
+[submodule "otter-hypr"]
+	path = otter-hypr
+	url = git@ssh.pika-os.com:otter-shell/otter-hypr.git
+	branch = main
+[submodule "otter-idle"]
+	path = otter-idle
+	url = git@ssh.pika-os.com:otter-shell/otter-idle.git
+	branch = main
+[submodule "otter-installer"]
+	path = otter-installer
+	url = git@ssh.pika-os.com:otter-shell/otter-installer.git
+	branch = fer/program-release-20260905
+[submodule "otter-jade"]
+	path = otter-jade
+	url = git@ssh.pika-os.com:otter-shell/otter-jade.git
+	branch = main
+[submodule "otter-keybindhelp"]
+	path = otter-keybindhelp
+	url = git@ssh.pika-os.com:otter-shell/otter-keybindhelp.git
+	branch = main
+[submodule "otter-launcher"]
+	path = otter-launcher
+	url = git@ssh.pika-os.com:otter-shell/otter-launcher.git
+	branch = main
+[submodule "otter-lock"]
+	path = otter-lock
+	url = git@ssh.pika-os.com:otter-shell/otter-lock.git
+	branch = main
+[submodule "otter-logout"]
+	path = otter-logout
+	url = git@ssh.pika-os.com:otter-shell/otter-logout.git
+	branch = main
+[submodule "otter-monitor"]
+	path = otter-monitor
+	url = git@ssh.pika-os.com:otter-shell/otter-monitor.git
+	branch = main
+[submodule "otter-nightlight"]
+	path = otter-nightlight
+	url = git@ssh.pika-os.com:otter-shell/otter-nightlight.git
+	branch = main
+[submodule "otter-note"]
+	path = otter-note
+	url = git@ssh.pika-os.com:otter-shell/otter-note.git
+	branch = main
+[submodule "otter-notifications"]
+	path = otter-notifications
+	url = git@ssh.pika-os.com:otter-shell/otter-notifications.git
+	branch = main
+[submodule "otter-osd"]
+	path = otter-osd
+	url = git@ssh.pika-os.com:otter-shell/otter-osd.git
+	branch = main
+[submodule "otter-overview"]
+	path = otter-overview
+	url = git@ssh.pika-os.com:otter-shell/otter-overview.git
+	branch = main
+[submodule "otter-pick"]
+	path = otter-pick
+	url = git@ssh.pika-os.com:otter-shell/otter-pick.git
+	branch = main
+[submodule "otter-pkg"]
+	path = otter-pkg
+	url = git@ssh.pika-os.com:otter-shell/otter-pkg.git
+	branch = main
+[submodule "otter-plugin-factory"]
+	path = otter-plugin-factory
+	url = git@ssh.pika-os.com:otter-shell/otter-plugin-factory.git
+	branch = main
+[submodule "otter-polkit"]
+	path = otter-polkit
+	url = git@ssh.pika-os.com:otter-shell/otter-polkit.git
+	branch = main
+[submodule "otter-rec"]
+	path = otter-rec
+	url = git@ssh.pika-os.com:otter-shell/otter-rec.git
+	branch = main
+[submodule "otter-render"]
+	path = otter-render
+	url = git@ssh.pika-os.com:otter-shell/otter-render.git
+	branch = master
+[submodule "otter-screenshot"]
+	path = otter-screenshot
+	url = git@ssh.pika-os.com:otter-shell/otter-screenshot.git
+	branch = main
+[submodule "otter-search"]
+	path = otter-search
+	url = git@ssh.pika-os.com:otter-shell/otter-search.git
+	branch = main
+[submodule "otter-settings"]
+	path = otter-settings
+	url = git@ssh.pika-os.com:otter-shell/otter-settings.git
+	branch = main
+[submodule "otter-shell-plugins"]
+	path = otter-shell-plugins
+	url = git@ssh.pika-os.com:otter-shell/otter-shell-plugins.git
+	branch = main
+[submodule "otter-shot"]
+	path = otter-shot
+	url = git@ssh.pika-os.com:otter-shell/otter-shot.git
+	branch = main
+[submodule "otter-site"]
+	path = otter-site
+	url = git@ssh.pika-os.com:otter-shell/otter-site.git
+	branch = main
+[submodule "otter-taskbar"]
+	path = otter-taskbar
+	url = git@ssh.pika-os.com:otter-shell/otter-taskbar.git
+	branch = main
+[submodule "otter-term"]
+	path = otter-term
+	url = git@ssh.pika-os.com:otter-shell/otter-term.git
+	branch = main
+[submodule "otter-theme"]
+	path = otter-theme
+	url = git@ssh.pika-os.com:otter-shell/otter-theme.git
+	branch = main
+[submodule "otter-theme-gen"]
+	path = otter-theme-gen
+	url = git@ssh.pika-os.com:otter-shell/otter-theme-gen.git
+	branch = main
+[submodule "otter-timer"]
+	path = otter-timer
+	url = git@ssh.pika-os.com:otter-shell/otter-timer.git
+	branch = main
+[submodule "otter-tools-core"]
+	path = otter-tools-core
+	url = git@ssh.pika-os.com:otter-shell/otter-tools-core.git
+	branch = main
+[submodule "otter-transcribe"]
+	path = otter-transcribe
+	url = git@ssh.pika-os.com:otter-shell/otter-transcribe.git
+	branch = main
+[submodule "otter-ui"]
+	path = otter-ui
+	url = git@ssh.pika-os.com:otter-shell/otter-ui.git
+	branch = master
+[submodule "otter-utils"]
+	path = otter-utils
+	url = git@ssh.pika-os.com:otter-shell/otter-utils.git
+	branch = master
+[submodule "otter-vox"]
+	path = otter-vox
+	url = git@ssh.pika-os.com:otter-shell/otter-vox.git
+	branch = main
+[submodule "otter-vte"]
+	path = otter-vte
+	url = git@ssh.pika-os.com:otter-shell/otter-vte.git
+	branch = main
+[submodule "otter-wallpaper"]
+	path = otter-wallpaper
+	url = git@ssh.pika-os.com:otter-shell/otter-wallpaper.git
+	branch = main
+[submodule "otter-wayland"]
+	path = otter-wayland
+	url = git@ssh.pika-os.com:otter-shell/otter-wayland.git
+	branch = master
+[submodule "otter-weather"]
+	path = otter-weather
+	url = git@ssh.pika-os.com:otter-shell/otter-weather.git
+	branch = main
+[submodule "otter-welcome"]
+	path = otter-welcome
+	url = git@ssh.pika-os.com:otter-shell/otter-welcome.git
+	branch = fer/program-release-20260905
+[submodule "otter-zenith"]
+	path = otter-zenith
+	url = git@ssh.pika-os.com:otter-shell/otter-zenith.git
+	branch = main
+[submodule "xdg-desktop-portal-otter"]
+	path = xdg-desktop-portal-otter
+	url = git@ssh.pika-os.com:otter-shell/xdg-desktop-portal-otter.git
+	branch = main
+[submodule "zango"]
+	path = zango
+	url = git@github.com:ferrreo/zango.git
+	branch = main
+[submodule "zig-regex"]
+	path = zig-regex
+	url = https://github.com/zig-utils/zig-regex.git
+	branch = main

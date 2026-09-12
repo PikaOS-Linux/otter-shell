@@ -41,6 +41,8 @@ otter-kernel-manager/
 otter-pika-welcome/
 otter-shell-plugins-pack/
 otter-first-setup-pkg-*/
+otter-zenith-*/
+tigerstyle-reviews/
 
 # Editor noise
 *.swp
