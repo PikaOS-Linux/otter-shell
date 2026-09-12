@@ -1,0 +1,47 @@
+# Local caches / generated
+.zig-cache/
+**/zig-cache/
+**/zig-out/
+__pycache__/
+tmp/
+unsloth_compiled_cache/
+.zidx/
+.freebuff/
+.runtime-fixtures/
+artifacts/
+reports/
+knowledge-sources/
+
+# Design / brainstorm dumps (not tracked in workspace)
+docs/
+.superpowers/
+
+# Accidental / one-off binaries and dumps
+.codex
+check
+oflags
+oflags2
+oflags3
+otter-hud-bench-design.zip
+wikijs
+*.zip
+
+# Machine-local agent settings
+.claude/settings.local.json
+
+# Skill prove outputs (regenerate via skill)
+.cursor/skills/verify-otter-settings/artifacts/
+
+# Scratch / non-workspace trees left on disk
+otter-test0/
+otter-browser-clean/
+otter-files-compare-*/
+otter-device-manager/
+otter-kernel-manager/
+otter-pika-welcome/
+otter-shell-plugins-pack/
+otter-first-setup-pkg-*/
+
+# Editor noise
+*.swp
+.DS_Store

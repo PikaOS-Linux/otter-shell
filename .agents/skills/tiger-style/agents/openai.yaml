@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tiger Style"
+  short_description: "Audit Otter components against TigerStyle"
+  default_prompt: "Use $tiger-style on one Otter app or library."
