@@ -236,6 +236,7 @@ Validation ran on Linux x86_64 with Zig 0.17.0 and `-Doptimize=ReleaseFast`. Cac
 | Browser helpers | Broker, OpenCDM and Widevine suites passed, including real fixture decryption and C ABI smoke |
 | Examples and benchmarks | Nested build roots compiled, including plugin examples and config/render/UI/desktop/theme benchmarks |
 | Zenith | Repeated vendored dependency seeding and selective dependency/package-selection tests passed |
+| Full Debian release build | Run #327 passed: all selected builds, 7 packaged Wayland client checks, 79 Debian packages built and uploaded to `cockatiel-incoming` |
 | Portal install paths | Prefix, staging-root and escaped-path tests passed; staged services contain `/opt/otter-zig17/bin`, without `DESTDIR` |
 | Formatting and static checks | `zig fmt --check` on 3,481 Zig/zon files; per-repository `git diff --check`; changed Python/shell syntax checks; portal line limit and Bench doc lint passed; website badge passed Prettier and ESLint |
 
@@ -248,8 +249,8 @@ Build/test logs and rendered fixtures are under `/tmp/otter-zig-017/` for this s
 - The wider vendored uucode suite still has 18 failing lookup tests. An untouched checkout tested with Zig 0.16.0 has 19 failures; every 0.17 failure also appears in that baseline. The production-selected bidi fields and itijah suite pass. This migration does not repair those unrelated upstream lookup failures.
 - Optional bidi differential checks report 48 differences against FriBidi on 158 cases; ICU agrees on 157, with one warning. The differential command's successful exit is not an exact-equivalence claim.
 - zhl's upstream release gates require external grammar-corpus tooling and also report an existing file-length violation. The added `test-unit` target exercises its bundled tests without those upstream release gates.
-- No live GPU recording, audio hardware, root service installation, other CPU architectures, full Debian package train, or Zig 0.16-versus-0.17 performance comparison was run. Existing headless gates also report their unavailable scenarios explicitly.
-- Release completion and package-build evidence are recorded below as each publication stage finishes.
+- No live GPU recording, audio hardware, root service installation, other CPU architectures, or Zig 0.16-versus-0.17 performance comparison was run. Existing headless gates also report their unavailable scenarios explicitly.
+- The release upload to `cockatiel-incoming` is confirmed below. Public APT-index propagation was not verified: the repository returned HTTP 403 to the index check.
 
 ## 0.12.0 release train
 
@@ -257,7 +258,11 @@ Every source package pinned by Zenith was built with its release dependency URLs
 
 Bench, examples, Hypr helpers and the website are outside Zenith’s source train. Their Zig migration changes were committed and pushed without changing their independent release versions.
 
-Zenith is prepared as `0.12.0-101pika1`, with the full app/shared-library/plugin/font/model selection and no old source-ref overrides. Remote package-build outcome will be recorded after the run finishes.
+Zenith commit `8919d40c038fbd391afe409380b22989d01dde07` shipped the full app/shared-library/plugin/font/model selection with no old source-ref overrides. [Release run #327](https://git.pika-os.com/otter-shell/otter-zenith/actions/runs/253278) succeeded on 11 October 2026 in 1h28m1s using Zig 0.17.0, `cockatiel`, and `x86_64_v3`.
+
+The clean remote build compiled all six shared libraries, every selected application, and the full PGO WebKit engine. All seven packaged-binary Wayland registry-negotiation checks passed. It produced and uploaded **79 Debian packages: 67 main packages and 12 automatic debug-symbol packages** to `/srv/www/cockatiel-incoming/`. Shell packages use `0.12.0-101pika1`; the separately versioned WebKit runtime retains `2.52.6+otter11`. The job reported `Success`, `built: 79 deb(s)`, and a completed rsync transfer with zero files remaining.
+
+The workspace migration and submodule pins were committed and pushed as `2fbe9be`. This report records the final package-build evidence after that source commit.
 
 | Package | Tag | Pin before → after |
 | --- | --- | --- |
