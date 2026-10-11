@@ -1,0 +1,63 @@
+package,zig_version,build,test,build_summary,test_summary
+bluetooth-applet-plugin,0.17.0,pass,pass,30/30 steps succeeded,11/11 steps succeeded
+otter-assist,0.17.0,pass,pass,13/13 steps succeeded,23/23 steps succeeded; 2/2 tests passed
+otter-assistant,0.17.0,pass,pass,31/31 steps succeeded,27/27 steps succeeded; 62/62 tests passed
+otter-bar,0.17.0,pass,pass,94/94 steps succeeded,94/94 steps succeeded; 123/123 tests passed
+otter-bench,0.17.0,pass,pass,54/54 steps succeeded,95/95 steps succeeded; 684/684 tests passed
+otter-browser,0.17.0,pass,pass,57/57 steps succeeded,54/54 steps succeeded; 1743/1745 tests passed (2 skipped)
+otter-cal,0.17.0,pass,pass,6/6 steps succeeded,6/6 steps succeeded; 4/4 tests passed
+otter-calc,0.17.0,pass,pass,6/6 steps succeeded,6/6 steps succeeded; 3/3 tests passed
+otter-clicker,0.17.0,pass,pass,11/11 steps succeeded,11/11 steps succeeded; 10/10 tests passed
+otter-clip,0.17.0,pass,pass,16/16 steps succeeded,14/14 steps succeeded; 39/39 tests passed
+otter-conf,0.17.0,pass,pass,8/8 steps succeeded,6/6 steps succeeded
+otter-config-types,0.17.0,pass,pass,1/1 steps succeeded,22/22 steps succeeded; 68/68 tests passed
+otter-cue,0.17.0,pass,pass,61/61 steps succeeded,6/6 steps succeeded
+otter-desktop,0.17.0,pass,pass,9/9 steps succeeded,63/63 steps succeeded
+otter-dock,0.17.0,pass,pass,27/27 steps succeeded,27/27 steps succeeded; 142/142 tests passed
+otter-emoji,0.17.0,pass,pass,6/6 steps succeeded,6/6 steps succeeded; 3/3 tests passed
+otter-examples,0.17.0,pass,pass,29/29 steps succeeded,29/29 steps succeeded; 3/3 tests passed
+otter-files,0.17.0,pass,pass,37/37 steps succeeded,34/34 steps succeeded; 711/712 tests passed (1 skipped)
+otter-first-setup,0.17.0,pass,pass,28/28 steps succeeded,30/30 steps succeeded; 53/53 tests passed
+otter-geo,0.17.0,pass,pass,5/5 steps succeeded,3/3 steps succeeded; 41/41 tests passed
+otter-greeter,0.17.0,pass,pass,47/47 steps succeeded,35/35 steps succeeded; 56/56 tests passed
+otter-hypr,0.17.0,pass,pass,31/31 steps succeeded,30/30 steps succeeded; 11/11 tests passed
+otter-idle,0.17.0,pass,pass,15/15 steps succeeded,15/15 steps succeeded; 11/11 tests passed
+otter-installer,0.17.0,pass,pass,29/29 steps succeeded,33/33 steps succeeded; 34/34 tests passed
+otter-jade,0.17.0,pass,pass,34/34 steps succeeded,30/30 steps succeeded; 40/40 tests passed
+otter-keybindhelp,0.17.0,pass,pass,29/29 steps succeeded,27/27 steps succeeded; 10/10 tests passed
+otter-launcher,0.17.0,pass,pass,38/38 steps succeeded,34/34 steps succeeded; 62/62 tests passed
+otter-lock,0.17.0,pass,pass,32/32 steps succeeded,31/31 steps succeeded; 19/19 tests passed
+otter-logout,0.17.0,pass,pass,27/27 steps succeeded,27/27 steps succeeded; 18/18 tests passed
+otter-monitor,0.17.0,pass,pass,31/31 steps succeeded,27/27 steps succeeded; 52/52 tests passed
+otter-nightlight,0.17.0,pass,pass,10/10 steps succeeded,10/10 steps succeeded; 3/3 tests passed
+otter-note,0.17.0,pass,pass,31/31 steps succeeded,27/27 steps succeeded; 19/19 tests passed
+otter-notifications,0.17.0,pass,pass,30/30 steps succeeded,30/30 steps succeeded; 22/22 tests passed
+otter-osd,0.17.0,pass,pass,79/79 steps succeeded,79/79 steps succeeded; 48/48 tests passed
+otter-overview,0.17.0,pass,pass,29/29 steps succeeded,27/27 steps succeeded; 93/93 tests passed
+otter-pick,0.17.0,pass,pass,10/10 steps succeeded,10/10 steps succeeded; 4/4 tests passed
+otter-pkg,0.17.0,pass,pass,42/42 steps succeeded,28/28 steps succeeded; 36/36 tests passed
+otter-plugin-factory,0.17.0,pass,pass,3/3 steps succeeded,3/3 steps succeeded
+otter-polkit,0.17.0,pass,pass,30/30 steps succeeded,30/30 steps succeeded; 16/16 tests passed
+otter-rec,0.17.0,pass,pass,70/70 steps succeeded,72/72 steps succeeded; 47/47 tests passed
+otter-render,0.17.0,pass,pass,22/22 steps succeeded,22/22 steps succeeded; 212/212 tests passed
+otter-screenshot,0.17.0,pass,pass,30/30 steps succeeded,30/30 steps succeeded; 8/8 tests passed
+otter-search,0.17.0,pass,pass,11/11 steps succeeded,11/11 steps succeeded; 12/12 tests passed
+otter-settings,0.17.0,pass,pass,35/35 steps succeeded,30/30 steps succeeded; 176/176 tests passed
+otter-shell-plugins,0.17.0,pass,not available,23/23 steps succeeded,No test target; package and plugin examples built
+otter-shot,0.17.0,pass,pass,34/34 steps succeeded,32/32 steps succeeded; 22/22 tests passed
+otter-taskbar,0.17.0,pass,pass,30/30 steps succeeded,30/30 steps succeeded; 88/88 tests passed
+otter-term,0.17.0,pass,pass,72/72 steps succeeded,69/69 steps succeeded; 169/169 tests passed
+otter-theme,0.17.0,pass,pass,40/40 steps succeeded,22/22 steps succeeded; 23/23 tests passed
+otter-theme-gen,0.17.0,pass,pass,11/11 steps succeeded,10/10 steps succeeded; 46/46 tests passed
+otter-timer,0.17.0,pass,pass,6/6 steps succeeded,6/6 steps succeeded
+otter-tools-core,0.17.0,pass,pass,1/1 steps succeeded,9/9 steps succeeded; 3/3 tests passed
+otter-transcribe,0.17.0,pass,pass,86/86 steps succeeded,88/88 steps succeeded; 21/21 tests passed
+otter-ui,0.17.0,pass,pass,34/34 steps succeeded,30/30 steps succeeded; 367/367 tests passed
+otter-utils,0.17.0,pass,pass,4/4 steps succeeded,7/7 steps succeeded
+otter-vox,0.17.0,pass,pass,66/66 steps succeeded,8/8 steps succeeded; 13/13 tests passed
+otter-vte,0.17.0,pass,pass,1/1 steps succeeded,22/22 steps succeeded; 3/3 tests passed
+otter-wallpaper,0.17.0,pass,pass,10/10 steps succeeded,12/12 steps succeeded; 70/70 tests passed
+otter-wayland,0.17.0,pass,pass,1/1 steps succeeded,25/25 steps succeeded; 211/212 tests passed (1 skipped)
+otter-weather,0.17.0,pass,pass,29/29 steps succeeded,27/27 steps succeeded; 11/11 tests passed
+otter-welcome,0.17.0,pass,pass,28/28 steps succeeded,30/30 steps succeeded; 19/19 tests passed
+xdg-desktop-portal-otter,0.17.0,pass,pass,104/104 steps succeeded,98/98 steps succeeded; 65/65 tests passed

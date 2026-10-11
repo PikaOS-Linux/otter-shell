@@ -13,7 +13,9 @@ reports/
 knowledge-sources/
 
 # Design / brainstorm dumps (not tracked in workspace)
-docs/
+docs/*
+!docs/zig-0.17-migration.md
+!docs/zig-0.17-verification.csv
 .superpowers/
 
 # Accidental / one-off binaries and dumps

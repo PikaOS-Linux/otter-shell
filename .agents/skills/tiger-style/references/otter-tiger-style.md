@@ -3,7 +3,7 @@
 Source: https://github.com/tigerbeetle/tigerbeetle/blob/main/docs/TIGER_STYLE.md
 
 Use this as a practical Otter Shell checklist. Preserve project rules from
-`/home/ferreo/otter-shell/AGENTS.md`: Zig 0.16.0 style, surgical changes,
+`/home/ferreo/otter-shell/AGENTS.md`: Zig 0.17.0 style, surgical changes,
 data-driven design, branchless hot paths where possible, and performance concerns
 called out before merging.
 

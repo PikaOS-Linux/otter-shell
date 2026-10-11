@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## RULES TO FOLLOW
 
-Always write zig 0.16.0 not older zig
+Always write zig 0.17.0 not older zig
 Always use release builds (`-Doptimize=ReleaseFast`) for build/test commands; Debug builds can segfault in large transitive compiles
 Always update unit test, benchmarks, readme and this document when making changes that require it
 Follow data drive design and branchless programming pattern wherever possible
@@ -87,11 +87,12 @@ D-Bus (basu), PipeWire, and PAM are compile-time optional via `-Denable_dbus=fal
 - **Capture selection overlay** (otter-wayland): `selection_overlay.zig` is the single shared frozen/live region selector for `otter-screenshot`, `otter-shot`, and `otter-rec`, and point selector for `otter-clicker`. Uses `capture_overlay.create()` + direct SHM pixel compositing with incremental damage — **not** Surface Description. Apps pass `selection_overlay.preset.{screenshot,shot,rec,clicker}` for layer namespace and visual mode (`.frozen_unshaded` for screenshot CLI, `.frozen_dimmed` for shot/rec, transparent `.live` for clicker).
 - **One output tracker** (otter-wayland): `capture/output.zig`'s `OutputList` is the only thing that *stores* output state (mode, position, transform, `wl_output.scale`, `zwlr_output_head` fractional scale, `xdg_output` logical size, name); `output_scale.Monitor` is an alias for it and `output_scale.OutputScale` is a view produced by `OutputInfo.scaleInfo()`. A second tracker briefly existed and the two disagreed by a third on a fractional display. `OutputInfo.scale` is the integer **ceiling** (2 on a 150% output); `scaleQ8()` is the exact factor, derived from mode ÷ logical size snapped to the 1/120 grid, and `unknown_q8 = 0` means "cannot be known", never a scale of zero. Never pair `logicalWidth()` with a division by `OutputInfo.scale` — one is exact and the other is not its inverse.
 - **CommandList + Quad Renderer** (otter-render): All apps buffer draw commands via `DefaultCommandList` (solidRect, blendRect, roundedSolidRect, roundedBlendRect, roundedRectOutline, text, image, sprite, scissorPush/Pop, etc.), then `quad_renderer.rasterize()` plays them back with scissor clipping and damage culling. Text measurement: `font.measureTextAtScale(text, size, cmds.scale)`.
+- **Terminal program status and relative images** (otter-term): Ghostty parses OSC 7501; `terminal/program_status.zig` stores at most 64 records per terminal, replaces complete records, clears subtrees, inherits ancestor app IDs, and expires working/blocked records at primary prompts. Tab/window titles show the selected status. OSC 9;4 maps to status only before the first OSC 7501 report after RIS. Rendering resolves Kitty parent chains through Ghostty, locates virtual parents from placeholder runs once per pass, and composites overlapping images. PTY-to-pixel tests cover chains, alpha, deletion, scrolling and resize.
 - **Terminal Rendering Boundary** (otter-vte): Terminal views use `DynamicCommandList`, `PowerlineOps`, `BlockOps`, `cell_glyphs`, and `CellRenderer(...)` from `otter-vte`. Apps provide terminal/session state and comptime hooks, while terminal cell rendering stays in the shared package so other apps can embed terminal output without copying `otter-term` internals.
 - **Terminal Scroll Blit** (otter-term): `app/damage.zig` detects a uniform upward row shift between the SHM buffer's visual-hash snapshot and the current grid (`detectRowShift`, FNV row summaries, majority + k=0-dominance thresholds), memmoves the already-rendered pixel band (`Surface.blitRowsVertical`), rotates the snapshot rows, then lets the normal hash diff drive small render damage. A wrong shift only costs performance, never correctness, because the diff runs against the rotated snapshot. The moved band is submit-only damage (`TermApp.blit_submit_band`/`_prev`, reported for two frames) and never enters the render-culling set. Blit is gated off while overlays that bypass visual hashes are active (url underline, context menu, preedit, bell flash, kitty) plus a cooldown, and only engages when every viewport row was walked.
 - **Terminal Scrollback Compression** (otter-term): `app/compression.zig` caches each ghostty-vt activity token, waits 250 ms after terminal activity, then schedules one incremental compression step per event-loop pass until the API reports complete or unsupported. Scheduler state follows each tab/split; logical scrollback content and limits remain unchanged.
-- **Terminal ghostty boundary** (otter-term): the ghostty `ghostty-vt` **Zig module** (vendored package pin in `zig-pkg/`, imported as `ghostty_vt`; no C ABI, no installed libghostty-vt) owns paste sanitizing, word/line selection semantics and tracked active selections, OSC 7/9/1337 PWD parsing, OSC 8 hyperlinks, Unicode grapheme widths, cursor visuals, palette generation, and terminal protocol reports/callbacks (focus, resize, color scheme, device attributes, XTVERSION, clipboard writes). `TerminalCore` owns a `vt.Terminal` + comptime-specialized `vt.TerminalStream` (dispatch inlines; app callbacks attach via effect trampolines) + `vt.RenderState`; the render walk reads `RenderState.row_data` MultiArrayList slices directly. Executables importing `ghostty_vt` need `.use_llvm = true` (uucode tables crash the Zig 0.16 self-hosted x86_64 backend), and `src/fast_memset.zig` must stay pure inline-asm (a scalar loop gets loop-idiom-recognized back into a self-recursive `memset` call). Otter supplies Wayland policy/UI and sources terminal colors from `otter-term.conf`; UI chrome uses `otter-theme` tokens.
-- **Text System Boundary** (otter-render): `src/text.zig` owns the backend boundary for HarfBuzz shaping, itijah bidi checks/layout, and Fontconfig translate-C. `TextSystem.measure` preserves the current FreeType fast path for ASCII/simple LTR and uses HarfBuzz advances plus itijah layout for complex text. `TextSystem.draw` renders shaped glyph IDs through cached FreeType glyph-index rasterization and routes `.notdef` clusters back through the existing fallback chain. `itijah` is vendored at latest main commit `a8a70fc73ea7bcfcffd260e390521c521c1e8490` with a Zig 0.16 build wrapper.
+- **Terminal ghostty boundary** (otter-term): the ghostty `ghostty-vt` **Zig module** (vendored package pin in `zig-pkg/`, imported as `ghostty_vt`; no C ABI, no installed libghostty-vt) owns paste sanitizing, word/line selection semantics and tracked active selections, OSC 7/9/1337 PWD parsing, OSC 8 hyperlinks, Unicode grapheme widths, cursor visuals, palette generation, and terminal protocol reports/callbacks (focus, resize, color scheme, device attributes, XTVERSION, clipboard writes). `TerminalCore` owns a `vt.Terminal` + comptime-specialized `vt.TerminalStream` (dispatch inlines; app callbacks attach via effect trampolines) + `vt.RenderState`; the render walk reads `RenderState.row_data` MultiArrayList slices directly. Executables importing `ghostty_vt` need `.use_llvm = true` (uucode tables crash the Zig 0.17 self-hosted x86_64 backend), and `src/fast_memset.zig` must stay pure inline-asm (a scalar loop gets loop-idiom-recognized back into a self-recursive `memset` call). Otter supplies Wayland policy/UI and sources terminal colors from `otter-term.conf`; UI chrome uses `otter-theme` tokens.
+- **Text System Boundary** (otter-render): `src/text.zig` owns the backend boundary for HarfBuzz shaping, itijah bidi checks/layout, and Fontconfig translate-C. `TextSystem.measure` preserves the current FreeType fast path for ASCII/simple LTR and uses HarfBuzz advances plus itijah layout for complex text. `TextSystem.draw` renders shaped glyph IDs through cached FreeType glyph-index rasterization and routes `.notdef` clusters back through the existing fallback chain. `itijah` is vendored at latest main commit `a8a70fc73ea7bcfcffd260e390521c521c1e8490` with a Zig 0.17 build wrapper.
 - **Border Radius** (otter-render/otter-theme): SDF-based rounded rect rendering via `sdf.zig`. Theme tokens: `popup.border_radius`, `spacing.widget_border_radius`, `spacing.button_border_radius`, `decorations.border_radius`. CommandList: `roundedSolidRect`, `roundedBlendRect`, `roundedRectOutline` with `corners: u4` bitmask (bit0=TL, bit1=TR, bit2=BL, bit3=BR). Zero-radius fast-paths to existing sharp rect logic. Compositor border radius sent via `set_borders` protocol request with `radius` argument.
 - **Damage Tracking** (otter-wayland): `DamageTracker` accumulates dirty rects with double-buffer support. Falls back to full redraw on overflow.
 - **UI command storage** (otter-ui): `Capacities.command_storage = false` is only for input/layout states whose application owns an external command list. Rendering entry points intentionally fail at compile time for those states. Rendering apps keep the default bounded command capacity unless measured frame maxima and overflow behavior prove a smaller capacity safe.
@@ -170,7 +171,7 @@ D-Bus (basu), PipeWire, and PAM are compile-time optional via `-Denable_dbus=fal
 | Taskbar hover previews | `otter-taskbar/src/preview.zig` + `ext_image_copy_capture` / `ext_foreign_toplevel_list` |
 | Taskbar config types | `otter-config-types/src/taskbar.zig` |
 | Taskbar settings | `otter-settings/src/tabs.zig`, `otter-settings/src/editor.zig` |
-| Terminal app | `otter-term/build.zig` (Zig 0.16 app embedding the ghostty `ghostty-vt` Zig module; Otter owns Wayland/PTY/render frontend) |
+| Terminal app | `otter-term/build.zig` (Zig 0.17 app embedding the ghostty `ghostty-vt` Zig module; Otter owns Wayland/PTY/render frontend) |
 | Terminal scrollback compression | `otter-term/src/app/compression.zig`, `otter-term/src/terminal/core.zig` |
 | Transcribe daemon and CLI | `otter-transcribe/src/main.zig`, `otter-transcribe/src/ctl.zig`, `otter-transcribe/src/config.zig`, `otter-transcribe/src/indicator.zig` |
 | Transcribe config types | `otter-config-types/src/transcribe.zig` |
@@ -253,7 +254,7 @@ Each app follows the pattern: `<app>/src/main.zig` (entry), `config.zig` (schema
 
 - **basu** (`otter-desktop/vendor/basu/`): Standalone sd-bus from systemd. No runtime libsystemd dependency.
 - **PipeWire** (`otter-desktop/vendor/pipewire/`, from `allyourcodebase/pipewire`): Zig bindings with dlopen shims. Statically linked.
-- **itijah** (`otter-render/vendor/itijah/`): Zig-native Unicode Bidirectional Algorithm, vendored from latest main with a local Zig 0.16 build wrapper.
+- **itijah** (`otter-render/vendor/itijah/`): Zig-native Unicode Bidirectional Algorithm, vendored from latest main with a local Zig 0.17 build wrapper.
 
 ## Configuration Format (otter-conf)
 
@@ -350,9 +351,19 @@ var reporter = otter_log.Reporter("otter-bar", 30).init();  // Periodic reporter
 - **Font glyph cache**: Proactive culling at 8192 entries, reactive eviction on alloc failure. Fallback fonts from `/usr/share/fonts/otter-shell/` via mmap.
 - `otter-wayland` calls `malloc_trim(0)` every ~300 dispatches to reclaim glibc heap from libwayland churn.
 
-## Zig 0.16 API Notes
+## Zig 0.17 API Notes
 
-The repo is fully on Zig 0.16 — every `build.zig.zon` declares `.minimum_zig_version = "0.16.0"` and all 37 app entry points use the 0.16 `main` signature. The notes below describe the idioms the code actually uses; do not reintroduce the 0.15 forms.
+Use Zig 0.17.0 for workspace packages. App entry points keep `main(init: std.process.Init)` and the shared `std.Io` singleton. See `docs/zig-0.17-migration.md` for migration examples and verification.
+
+### Reflection, arrays, and build APIs
+
+- Repeat arrays with `@splat(value)`; array `**` is removed.
+- Struct metadata has parallel `field_names`, `field_types`, and `field_attrs` arrays; enum metadata has `field_names` and `field_values`. Function metadata uses `param_types`.
+- Use `@backingInt` / `@fromBackingInt` for enum conversions and `@Int` for integer types.
+- Use `dupeSentinel(T, values, sentinel)` / `bufPrintSentinel(buffer, format, args, sentinel)` for terminated strings.
+- Build code uses `std.lang.Optimize` with `.debug`, `.safe`, `.fast`, `.small`. Existing CLI `-Doptimize=ReleaseFast` remains accepted.
+- Forward run arguments with `run.addPassthruArgs()`. Use `b.root` for build-root access and lazy install paths for prefix-dependent outputs.
+- `@bitCast` cannot reinterpret extern structs. Read/write their bytes explicitly with the required endianness.
 
 ### The `io` Parameter is Everywhere
 
@@ -502,7 +513,7 @@ const val = arr[runtime_index];
 
 C translation lives in the build system. Eleven packages wire a translate-c step: `otter-bench`, `otter-clicker`, `otter-desktop`, `otter-greeter`, `otter-rec`, `otter-render`, `otter-term`, `otter-theme-gen`, `otter-utils`, `otter-vox`, `otter-wayland`.
 
-The only remaining `@cImport` call sites are in vendored third-party code (`otter-desktop/vendor/pipewire/`, `otter-render/vendor/itijah/src/test/diff_oracle.zig`) and in `zango`, which is a separate compositor project. **New first-party code must not use `@cImport`.**
+`@cImport` is removed in Zig 0.17. Use build-time translation for first-party and vendored dependencies. `zango` remains a separate compositor project.
 
 Write a real `.h` file and wire the step in `build.zig`:
 

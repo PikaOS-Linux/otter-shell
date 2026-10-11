@@ -57,7 +57,7 @@ Run before any drive when something looks off:
 
 Doctor is read-only. It checks:
 
-- `zig` reports `0.16.0`
+- `zig` reports `0.17.0`
 - font pin `/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf` exists (fixture hard-requires it)
 - committed baselines exist at `$SETTINGS/visual/baselines/*.png` (18 fixtures)
 - for optional live smoke: `sway`, `grim`, `swaymsg`, `dbus-run-session` on `PATH`

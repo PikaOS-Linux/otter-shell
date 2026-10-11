@@ -4,7 +4,7 @@ This directory is the maintained source for verifying user-facing otter-settings
 
 ## Baseline preconditions
 
-- Work from `/home/ferreo/otter-shell/otter-settings` with Zig `0.16.x`.
+- Work from `/home/ferreo/otter-shell/otter-settings` with Zig `0.17.x`.
 - Always use `-Doptimize=ReleaseFast` for build and visual steps.
 - Run `.cursor/skills/verify-otter-settings/scripts/doctor.sh` and require exit `0` before driving.
 - Prefer CPU fixtures (`visual-test`) over live windows.

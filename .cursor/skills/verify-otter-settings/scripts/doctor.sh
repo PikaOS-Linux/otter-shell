@@ -13,8 +13,8 @@ bad() { printf 'doctor: FAIL: %s\n' "$*" >&2; fail=1; }
 
 zig_ver=$(zig version 2>/dev/null || true)
 case "$zig_ver" in
-  0.16.*) say "zig $zig_ver" ;;
-  *) bad "need zig 0.16.x, got '${zig_ver:-missing}'" ;;
+  0.17.*) say "zig $zig_ver" ;;
+  *) bad "need zig 0.17.x, got '${zig_ver:-missing}'" ;;
 esac
 
 if [[ -f "$FONT" ]]; then

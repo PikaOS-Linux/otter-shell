@@ -33,3 +33,7 @@ git commit -m "chore: bump workspace pins"
 - `.agents/skills/` is the skill source of truth; `.claude/skills` is a symlink to it
 - Cursor-only: `.cursor/skills/verify-otter-settings/`
 - Agent guidance: `AGENTS.md`, `CLAUDE.md`, `CONTEXT.md`
+
+## Toolchain
+
+Workspace packages require Zig 0.17.0. Use `zig build -Doptimize=ReleaseFast` and `zig build -Doptimize=ReleaseFast test` from each package. See [Zig 0.17 migration report](docs/zig-0.17-migration.md) for changes and verification.
